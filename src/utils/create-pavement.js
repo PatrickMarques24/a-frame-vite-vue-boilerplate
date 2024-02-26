@@ -22,7 +22,9 @@ export const createPavement = (
 				"position",
 				`${
 					i * (data.square.width + data.offset) * inversion + ajustementTailleSalle
-				} ${altitude} ${j * (data.square.width + data.offset) * inversion}`
+				} ${altitude} ${
+					j * (data.square.width + data.offset) * inversion + ajustementTailleSalle
+				}`
 			);
 			document.querySelector("a-scene").appendChild(myTile);
 		}

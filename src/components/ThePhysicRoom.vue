@@ -25,7 +25,10 @@ import "../aframe/clickable.js";
 			material="src: #room-physic-out-texture"
 			position="0 2.1 4.12"
 			rotation="0 180 0"
-			:rot="90"
+			:rot="0"
+			:cameraEffect="true"
+			:cameraY="1.65"
+			:cameraRot="-180"
 		/>
 	</a-entity>
 

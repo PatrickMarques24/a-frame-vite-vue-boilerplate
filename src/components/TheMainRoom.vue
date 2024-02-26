@@ -5,7 +5,6 @@ import BoxColorChanging from "./BoxColorChanging.vue";
 import PortalTeleporter from "./PortalTeleporter.vue";
 import ExitDoor from "./ExitDoor.vue";
 import { toggleFog } from "../aframe/weather-and-time.js";
-
 import "../aframe/life-like-automaton.js";
 
 defineProps({
@@ -61,7 +60,10 @@ const colorBoxRight = ref(randomHsl());
 			rotation="0 180 0"
 			:rot="0"
 			:y="400"
-			:x="0"
+			:cameraEffect="true"
+			:cameraZ="0"
+			:cameraY="401.2"
+			:cameraRot="90"
 		/>
 
 		<PortalTeleporter
@@ -72,15 +74,22 @@ const colorBoxRight = ref(randomHsl());
 			:rot="180"
 			:y="300"
 			@click="toggleFog(true)"
+			:cameraEffect="true"
+			:cameraY="301.65"
+			:cameraRot="90"
 		/>
 
 		<PortalTeleporter
 			label="Enter the Life Cube Room"
-			life-like-automaton="resolution: 256;"
+			material="src: #room-physic-texture"
 			position="-7.99 1.5 0"
 			rotation="0 90 0"
 			:rot="180"
 			:y="100"
+			:cameraEffect="true"
+			:cameraY="101.65"
+			:cameraZ="-2"
+			:cameraRot="-180"
 		/>
 
 		<PortalTeleporter
@@ -90,6 +99,11 @@ const colorBoxRight = ref(randomHsl());
 			rotation="0 0 0"
 			:rot="180"
 			:y="200"
+			:cameraEffect="true"
+			:cameraY="201"
+			:cameraX="3.2"
+			:cameraZ="0"
+			:cameraRot="-90"
 		/>
 	</a-entity>
 

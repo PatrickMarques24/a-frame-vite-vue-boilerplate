@@ -4,7 +4,7 @@ import { createPavement } from "../utils/create-pavement.js";
 
 const data = {
 	rows: 20,
-	cols: 10,
+	cols: 20,
 	offset: 0.02,
 	square: {
 		width: 0.5,
@@ -17,7 +17,7 @@ const data = {
 
 let altitude = 400;
 
-createPavement(data, altitude, -1, 4.9);
+createPavement(data, altitude, -1, 5);
 
 // For dev purposes
 // alert(
@@ -42,7 +42,7 @@ createPavement(data, altitude, -1, 4.9);
 		<PortalTeleporter
 			label="Back to main room"
 			material="src: #room-gol-out-texture"
-			position="0 -0.5 0.2"
+			position="0 -0.5 4.9"
 			rotation="0 180 0"
 			:rot="0"
 		/>
@@ -51,8 +51,8 @@ createPavement(data, altitude, -1, 4.9);
 	<!-- Life Cube room navigation mesh -->
 	<a-entity
 		data-role="nav-mesh"
-		geometry="primitive: plane; height: 4.8; width: 9.8"
-		position="0 400.01 -2.5"
+		geometry="primitive: plane; height: 9.5; width: 9.5"
+		position="0 400.01 0"
 		rotation="-90 0 0"
 		material="color: #555"
 		visible="true"
