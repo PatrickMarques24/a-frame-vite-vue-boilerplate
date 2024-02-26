@@ -1,38 +1,31 @@
 <script setup>
 import PortalTeleporter from "./PortalTeleporter.vue";
-
-// Nous allons ajouter un pavage de 10x10 cubes depuis le centre de la pièce puis nous allons l'améliorer par la suite
+import { createPavement } from "../utils/create-pavement.js";
 
 const data = {
 	rows: 20,
 	cols: 10,
-	offset: 0.02, // Ajustez la valeur de l'offset selon vos besoins
+	offset: 0.02,
 	square: {
 		width: 0.5,
 		height: 0.05,
 		depth: 0.5,
+		color1: "black",
+		color2: "white",
 	},
 };
-for (let i = 0; i < data.rows; i++) {
-	for (let j = 0; j < data.cols; j++) {
-		const myTile = document.createElement("a-box");
-		myTile.setAttribute("width", data.square.width);
-		myTile.setAttribute("height", data.square.height);
-		myTile.setAttribute("depth", data.square.depth);
-		// color the tile, one of 2 is black other is white
 
-		myTile.setAttribute("color", `${(i + j) % 2 === 0 ? "black" : "white"}`);
+let altitude = 400;
 
-		// position the tile, we will use the offset to space them out
-		myTile.setAttribute(
-			"position",
-			`${i * (data.square.width + data.offset) * -1 + 5} 400 ${
-				j * (data.square.width + data.offset) * -1
-			}`
-		);
-		document.querySelector("a-scene").appendChild(myTile);
-	}
-}
+createPavement(data, altitude, -1, 4.9);
+
+// For dev purposes
+// alert(
+// 	`Pour la salle avec ${altitude}, il vous faut une salle d'une taille de \n
+// 		${data.rows * (data.square.width + data.offset) - data.offset} en x \n
+// 		${data.cols * (data.square.depth + data.offset) - data.offset} en y \n
+// 		pour vos carrés`
+// );
 </script>
 
 <template>

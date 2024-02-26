@@ -61,7 +61,7 @@ const colorBoxRight = ref(randomHsl());
 			rotation="0 180 0"
 			:rot="0"
 			:y="400"
-			:x="-2.5"
+			:x="0"
 		/>
 
 		<PortalTeleporter
