@@ -7,6 +7,7 @@ import TheLifeCubeRoom from "./TheLifeCubeRoom.vue";
 import ThePhysicRoom from "./ThePhysicRoom.vue";
 import TheOceanRoom from "./TheOceanRoom.vue";
 import TheSquareGroundRoom from "./TheSquareGroundRoom.vue";
+import "../aframe/simple-grab.js";
 
 defineProps({
 	scale: Number,
@@ -32,6 +33,7 @@ const allAssetsLoaded = ref(false);
       useDefaultScene: false;
       wasmUrl: lib/physx.release.wasm;
     "
+		simple-grab
 	>
 		<a-assets @loaded="allAssetsLoaded = true">
 			<!--

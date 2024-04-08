@@ -1,9 +1,12 @@
 <script setup>
 import { ref } from "vue";
 import { randomHsl } from "../utils/color.js";
+
 import BoxColorChanging from "./BoxColorChanging.vue";
 import PortalTeleporter from "./PortalTeleporter.vue";
 import ExitDoor from "./ExitDoor.vue";
+
+import "../aframe/listen-to.js";
 import { toggleFog } from "../aframe/weather-and-time.js";
 import "../aframe/life-like-automaton.js";
 
@@ -52,6 +55,46 @@ const colorBoxRight = ref(randomHsl());
 			@click="colorBoxLeft = randomHsl()"
 			sound="src: #sound-1; on: click;"
 		/>
+
+		<a-entity
+			id="drop-zone-left"
+			geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
+			material="color: red; side: double"
+			position="-2.75 1 -4"
+			rotation="90 0 0"
+			clickable
+			listen-to="target: #drop-zone-left;"
+			simple-grab-drop-zone
+		></a-entity>
+
+		<a-entity
+			id="drop-zone-right"
+			geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
+			material="color: purple; side: double"
+			position="-1.25 1 -4"
+			rotation="90 180 180"
+			clickable
+			listen-to="target: #drop-zone-right;"
+			simple-grab-drop-zone
+		></a-entity>
+
+		<a-box
+			id="box-1-grabbable"
+			color="red"
+			scale="0.3 0.3 0.3"
+			position="0 0.25 1"
+			clickable
+			simple-grab
+		></a-box>
+
+		<a-box
+			id="box-2-grabbable"
+			color="purple"
+			scale="0.3 0.3 0.3"
+			position="0 0.25 -1"
+			clickable
+			simple-grab
+		></a-box>
 
 		<PortalTeleporter
 			label="Enter the Square Ground Room"
@@ -121,10 +164,10 @@ const colorBoxRight = ref(randomHsl());
 
 	<a-entity
 		geometry="primitive: plane; height: .5; width: 5"
-		position="0 0.01 -11.75"
+		position="0 0.1 -11.75"
 		rotation="-90 0 0"
 		data-role="nav-mesh"
 		material="color: red"
-		visible="false"
+		visible="true"
 	></a-entity>
 </template>
